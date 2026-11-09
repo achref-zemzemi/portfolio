@@ -1,0 +1,66 @@
+name: Sync Behance & Deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * *"      # tous les jours à 06:00 UTC (07:00 en Tunisie)
+  workflow_dispatch:          # bouton « Run workflow » dans l'onglet Actions
+
+permissions:
+  contents: write             # pour committer projects.json + img/
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Synchroniser les projets Behance
+        id: sync
+        continue-on-error: true      # un échec Behance ne doit pas bloquer le déploiement du site
+        run: python scripts/sync_behance.py
+
+      - name: Commit des nouveaux projets / images
+        run: |
+          git config user.name "behance-sync[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add projects.json img
+          if git diff --cached --quiet; then
+            echo "Rien de nouveau."
+          else
+            git commit -m "chore: sync Behance projects"
+            git push
+          fi
+
+      - name: Préparer le dossier à publier
+        run: |
+          mkdir _site
+          cp index.html projects.json robots.txt sitemap.xml CNAME _site/
+          cp -r img _site/img
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Signaler un échec de synchronisation Behance
+        if: steps.sync.outcome == 'failure' && github.event_name != 'push'
+        run: |
+          echo "::error::La synchro Behance a échoué (le site a quand même été déployé). Voir les logs de l'étape « Synchroniser »."
+          exit 1
