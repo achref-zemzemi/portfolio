@@ -1,6 +1,6 @@
 # Portfolio — Achref Zemzemi
 
-Site statique (`index.html`) hébergé sur GitHub Pages, domaine `achrefzemzmi.com`.
+Site statique (`index.html`) hébergé sur GitHub Pages, domaine `achrefzemzemi.com`.
 
 ## Fonctionnement
 - `projects.json` : liste des projets affichés (lue par `index.html`).
