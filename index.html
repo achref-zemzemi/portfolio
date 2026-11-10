@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
@@ -24,10 +24,8 @@
       content="Digital Art Director, Motion Designer and AI Creative Artist based in Tunis area, Tunisia."
     />
     <meta name="twitter:card" content="summary" />
-    <link
-      rel="icon"
-      href="/az logo.png"
-    />
+    <link rel="icon" type="image/png" href="az-logo.png" />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -185,7 +183,10 @@
         text-transform: uppercase;
         letter-spacing: 0.16em;
         font-size: 0.78rem;
-        transition: background 0.3s, color 0.3s, border-color 0.3s;
+        transition:
+          background 0.3s,
+          color 0.3s,
+          border-color 0.3s;
         background: none;
         color: var(--ink);
         cursor: pointer;
@@ -282,7 +283,9 @@
         padding: 0.5rem 1.1rem;
         font-size: 0.9rem;
         text-decoration: none;
-        transition: border-color 0.3s, color 0.3s;
+        transition:
+          border-color 0.3s,
+          color 0.3s;
       }
       .chips a:hover {
         border-color: var(--acc);
@@ -385,7 +388,9 @@
         text-decoration: none;
         overflow: hidden;
         border: 1px solid transparent;
-        transition: border-color 0.4s, transform 0.4s;
+        transition:
+          border-color 0.4s,
+          transform 0.4s;
         animation: fi 0.6s both;
       }
       .pc::after {
@@ -615,7 +620,10 @@
       .btn {
         overflow: hidden;
         isolation: isolate;
-        transition: color 0.45s, transform 0.3s, border-color 0.3s;
+        transition:
+          color 0.45s,
+          transform 0.3s,
+          border-color 0.3s;
       }
       .btn::before {
         content: "";
@@ -690,7 +698,9 @@
         color: #a8a59d;
       }
       .xp {
-        transition: padding 0.4s, background 0.4s;
+        transition:
+          padding 0.4s,
+          background 0.4s;
       }
       .xp:hover {
         background: var(--surf);
@@ -771,7 +781,9 @@
         border: 1px solid var(--line);
         border-radius: 18px;
         padding: 1.6rem;
-        transition: transform 0.4s, border-color 0.4s;
+        transition:
+          transform 0.4s,
+          border-color 0.4s;
       }
       .ic div:hover {
         transform: translateY(-6px);
@@ -947,7 +959,9 @@
         margin-bottom: 0.5rem;
         text-decoration: none;
         color: #aab3d6;
-        transition: color 0.3s, transform 0.3s;
+        transition:
+          color 0.3s,
+          transform 0.3s;
       }
       .fc a:not(.btn):hover {
         color: #fff;
@@ -1134,7 +1148,9 @@
       .rv {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 0.9s, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+        transition:
+          opacity 0.9s,
+          transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
       .rv.on {
         opacity: 1;
@@ -1178,7 +1194,9 @@
       h1 s {
         animation: lu 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
         animation-delay: calc(var(--d) * 70ms);
-        transition: color 0.3s, rotate 0.3s;
+        transition:
+          color 0.3s,
+          rotate 0.3s;
       }
       h1 span:nth-child(2) s {
         animation-delay: calc(var(--d) * 70ms + 450ms);
@@ -1368,7 +1386,9 @@
         position: relative;
         transform: perspective(800px) rotateX(var(--rx, 0deg))
           rotateY(var(--ry, 0deg));
-        transition: box-shadow 0.5s, transform 0.3s ease-out;
+        transition:
+          box-shadow 0.5s,
+          transform 0.3s ease-out;
       }
       .th::after {
         content: "";
@@ -1388,7 +1408,10 @@
         transform: translateX(120%);
       }
       .chips span {
-        transition: border-color 0.3s, color 0.3s, transform 0.3s;
+        transition:
+          border-color 0.3s,
+          color 0.3s,
+          transform 0.3s;
       }
       .chips span:hover {
         transform: translateY(-3px) rotate(-2deg);
@@ -1410,7 +1433,10 @@
       }
       .btn {
         translate: var(--tx, 0px) var(--ty, 0px);
-        transition: color 0.45s, transform 0.3s, border-color 0.3s,
+        transition:
+          color 0.45s,
+          transform 0.3s,
+          border-color 0.3s,
           translate 0.25s;
       }
       #cta .btn {
@@ -1430,7 +1456,9 @@
       .zz s {
         animation: wv 3s ease-in-out infinite;
         animation-delay: calc(var(--d) * 0.15s);
-        transition: scale 0.3s, rotate 0.3s;
+        transition:
+          scale 0.3s,
+          rotate 0.3s;
       }
       @keyframes wv {
         0%,
@@ -1550,7 +1578,7 @@
     </header>
 
     <section class="hero home" id="top" style="max-width: none">
-      <div class="orb"><img alt="Achref Zemzemi" /></div>
+      <div class="orb"><img src="zamzoumpa.jpeg" alt="Achref Zemzemi" /></div>
       <i class="sh s1"></i><i class="sh s2"></i><i class="sh s3"></i
       ><i class="sh s4"></i>
       <a class="bdg" href="#work" aria-label="Scroll"
@@ -1595,14 +1623,35 @@
     </section>
 
     <section class="home band o" id="about">
-<div class="grid">
-<div><h2 class="rv"><small>About</small>Profile</h2><div class="meb rv"><img class="me" alt="Achref Zemzemi" src="/zamzoumpa.jpeg"></div></div>
-<div class="rv">
-<p class="lead">Art Director and Motion Designer, graduated from an art school in communication, multimedia and graphic advertising. Creative in my own style, and ultra contemporary.</p>
-<p class="muted">Specialized in AI-generated visuals, cinematic videos, creative advertising and viral Reels, reaching up to 700K views.</p>
-<div class="stats"><div><b>2014</b><span class="muted">first graphic design internship</span></div><div><b>700K</b><span class="muted">max views on AI Reels</span></div></div>
-</div></div>
-</section>
+      <div class="grid">
+        <div>
+          <h2 class="rv"><small>About</small>Profile</h2>
+          <div class="meb rv">
+            <img class="me" alt="Achref Zemzemi" src="zamzoumpa.jpeg" />
+          </div>
+        </div>
+        <div class="rv">
+          <p class="lead">
+            Art Director and Motion Designer, graduated from an art school in
+            communication, multimedia and graphic advertising. Creative in my
+            own style, and ultra contemporary.
+          </p>
+          <p class="muted">
+            Specialized in AI-generated visuals, cinematic videos, creative
+            advertising and viral Reels, reaching up to 700K views.
+          </p>
+          <div class="stats">
+            <div>
+              <b>2014</b
+              ><span class="muted">first graphic design internship</span>
+            </div>
+            <div>
+              <b>700K</b><span class="muted">max views on AI Reels</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="home band k" id="career">
       <h2 class="rv"><small>Career</small>Experience</h2>
@@ -2040,7 +2089,7 @@
                 }
               });
             },
-            { threshold: 0.12 }
+            { threshold: 0.12 },
           );
           els.forEach(function (el) {
             io.observe(el);
@@ -2057,7 +2106,7 @@
             function () {
               h.style.setProperty("--py", scrollY * 0.25 + "px");
             },
-            { passive: true }
+            { passive: true },
           );
         }
         var D = [];
@@ -2384,7 +2433,7 @@
             .concat(
               Object.keys(C).map(function (k) {
                 return [k, C[k]];
-              })
+              }),
             )
             .forEach(function (x) {
               var b = document.createElement("button");
@@ -2418,7 +2467,7 @@
               var p = Math.min((n - st) / 1600, 1);
               e.textContent =
                 Math.round(t * (1 - Math.pow(1 - p, 3))).toLocaleString(
-                  "en-US"
+                  "en-US",
                 ) + s;
               if (p < 1) requestAnimationFrame(f);
             })(st);
@@ -2433,7 +2482,7 @@
                   }
                 });
               },
-              { threshold: 0.4 }
+              { threshold: 0.4 },
             );
             N.forEach(function (e) {
               o.observe(e);
@@ -2472,7 +2521,7 @@
           var w = document.createTreeWalker(
               document.body,
               NodeFilter.SHOW_TEXT,
-              null
+              null,
             ),
             n,
             L = [];
@@ -2536,7 +2585,7 @@
               })
               .join("\n");
             m.textContent = tr(
-              "Could not send directly: your email app will open instead."
+              "Could not send directly: your email app will open instead.",
             );
             location.href =
               "mailto:" +
@@ -2592,7 +2641,7 @@
             m,
             function () {
               f.reset();
-            }
+            },
           );
         });
         var wz = document.getElementById("wz"),
@@ -2621,7 +2670,7 @@
             document.querySelectorAll("#wzo button.on"),
             function (b) {
               return b.dataset.fr;
-            }
+            },
           );
           if (
             !sv.length ||
@@ -2629,7 +2678,7 @@
             !/^\S+@\S+\.\S+$/.test(wf.email.value)
           ) {
             wm.textContent = tr(
-              "Please choose an option and enter your name and email."
+              "Please choose an option and enter your name and email.",
             );
             return;
           }
@@ -2648,7 +2697,7 @@
                 b.className = "";
                 b.setAttribute("aria-pressed", "false");
               });
-            }
+            },
           );
         });
 
@@ -2684,7 +2733,7 @@
               ty = e.clientY;
               hero.style.setProperty(
                 "--mx",
-                (e.clientX / innerWidth - 0.5) * -50 + "px"
+                (e.clientX / innerWidth - 0.5) * -50 + "px",
               );
               var t = e.target;
               if (!t.closest) return;
@@ -2694,11 +2743,11 @@
                   r = f.getBoundingClientRect();
                 f.style.setProperty(
                   "--ry",
-                  ((e.clientX - r.left) / r.width - 0.5) * 10 + "deg"
+                  ((e.clientX - r.left) / r.width - 0.5) * 10 + "deg",
                 );
                 f.style.setProperty(
                   "--rx",
-                  ((e.clientY - r.top) / r.height - 0.5) * -10 + "deg"
+                  ((e.clientY - r.top) / r.height - 0.5) * -10 + "deg",
                 );
               }
               var c = t.closest(".cl");
@@ -2712,15 +2761,15 @@
                 var r3 = b.getBoundingClientRect();
                 b.style.setProperty(
                   "--tx",
-                  (e.clientX - r3.left - r3.width / 2) * 0.25 + "px"
+                  (e.clientX - r3.left - r3.width / 2) * 0.25 + "px",
                 );
                 b.style.setProperty(
                   "--ty",
-                  (e.clientY - r3.top - r3.height / 2) * 0.35 + "px"
+                  (e.clientY - r3.top - r3.height / 2) * 0.35 + "px",
                 );
               }
             },
-            { passive: true }
+            { passive: true },
           );
           addEventListener("pointerout", function (e) {
             var t = e.target.closest && e.target.closest(".pc,.btn");
@@ -2749,10 +2798,13 @@
             spb.style.setProperty(
               "--p",
               scrollY /
-                Math.max(1, document.documentElement.scrollHeight - innerHeight)
+                Math.max(
+                  1,
+                  document.documentElement.scrollHeight - innerHeight,
+                ),
             );
           },
-          { passive: true }
+          { passive: true },
         );
 
         applyLang(lang);
@@ -2775,11 +2827,10 @@
             document.getElementById("n-proj").dataset.n = D.length;
             document.getElementById("n-views").dataset.n = D.reduce(function (
               a,
-              p
+              p,
             ) {
               return a + p.v;
-            },
-            0);
+            }, 0);
             applyLang(lang);
             initCounters();
             route();
