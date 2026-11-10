@@ -1976,11 +1976,11 @@
           ><span>Clients</span>
         </div>
         <div>
-          <b>+<i style="font-style: normal" data-n="9000">0</i></b
+          <b>+<i style="font-style: normal" data-n="9">0</i>k</b
           ><span>Behance project views</span>
         </div>
         <div>
-          <b>+<i style="font-style: normal" data-n="1000" data-s="K">0</i></b
+          <b>+<i style="font-style: normal" data-n="1" data-s="K">0</i>m</b
           ><span>Views on social media</span>
         </div>
         <div>
@@ -2246,807 +2246,807 @@
       </form>
     </div>
     <script>
-      (function () {
-        var rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-        var els = document.querySelectorAll(".rv");
-        if ("IntersectionObserver" in window && !rm) {
-          var io = new IntersectionObserver(
-            function (e) {
-              e.forEach(function (x) {
-                if (x.isIntersecting) {
-                  x.target.classList.add("on");
-                  io.unobserve(x.target);
-                }
-              });
-            },
-            { threshold: 0.12 },
-          );
-          els.forEach(function (el) {
-            io.observe(el);
-          });
-        } else {
-          els.forEach(function (el) {
-            el.classList.add("on");
-          });
-        }
-        if (!rm) {
-          var h = document.querySelector(".hero");
-          addEventListener(
-            "scroll",
-            function () {
-              h.style.setProperty("--py", scrollY * 0.25 + "px");
-            },
-            { passive: true },
-          );
-        }
-        var D = [];
-        var C = {
-          m: "Motion Design",
-          s: "Social Media",
-          g: "Graphic Design",
-          c: "Campaigns & Branding",
-        };
-        var lang = "fr";
-        try {
-          lang = localStorage.getItem("lg") || "fr";
-        } catch (e) {}
-        var T = {
-          "View all projects": ["Voir tous les projets", "عرض كل المشاريع"],
-          "Trusted by": ["Ils me font confiance", "يثقون بي"],
-          Work: ["Projets", "أعمال"],
-          About: ["À propos", "من أنا"],
-          Career: ["Parcours", "المسار"],
-          Contact: ["Contact", "اتصل بي"],
-          "Digital content creator": [
-            "Créateur de contenu digital",
-            "صانع محتوى رقمي",
-          ],
-          "Digital Art Director & Motion Designer · AI Creative Artist": [
-            "Directeur Artistique Digital & Motion Designer · Artiste créatif IA",
-            "مدير فني رقمي ومصمم موشن · فنان إبداعي بالذكاء الاصطناعي",
-          ],
-          "Explore my work": ["Découvrir mes projets", "اكتشف أعمالي"],
-          "Selected work": ["Sélection", "أعمال مختارة"],
-          Projects: ["Projets", "المشاريع"],
-          "View all projects (74)": [
-            "Voir tous les projets (74)",
-            "عرض كل المشاريع (74)",
-          ],
-          "Behance profile ↗": ["Profil Behance ↗", "ملفي على Behance ↗"],
-          "← Back": ["← Retour", "← رجوع"],
-          Archive: ["Archives", "الأرشيف"],
-          "All projects": ["Tous les projets", "كل المشاريع"],
-          "See everything on Behance ↗": [
-            "Tout voir sur Behance ↗",
-            "شاهد كل شيء على Behance ↗",
-          ],
-          "Motion Design": ["Motion Design", "موشن ديزاين"],
-          "Social Media": ["Réseaux sociaux", "وسائل التواصل"],
-          "Graphic Design": ["Design graphique", "تصميم جرافيك"],
-          "Campaigns & Branding": ["Campagnes & Branding", "حملات وهوية"],
-          Profile: ["Profil", "نبذة"],
-          "Art Director and Motion Designer, graduated from an art school in communication, multimedia and graphic advertising. Creative in my own style, and ultra contemporary.":
-            [
-              "Directeur artistique et motion designer, diplômé d’une école d’art en communication, multimédia et publicité graphique. Créatif à mon style, ultra contemporain.",
-              "مدير فني ومصمم موشن، خريج مدرسة فنون في الاتصال والوسائط المتعددة والإعلان الغرافيكي. مبدع بأسلوبي الخاص وعصري جداً.",
-            ],
-          "Specialized in AI-generated visuals, cinematic videos, creative advertising and viral Reels, reaching up to 700K views.":
-            [
-              "Spécialisé dans les visuels générés par IA, les vidéos cinématographiques, la publicité créative et les Reels viraux, jusqu’à 700K vues.",
-              "متخصص في الصور المولّدة بالذكاء الاصطناعي والفيديوهات السينمائية والإعلانات الإبداعية والريلز الفيروسية بما يصل إلى 700 ألف مشاهدة.",
-            ],
-          "first graphic design internship": [
-            "premier stage en design graphique",
-            "أول تدريب في التصميم الجرافيكي",
-          ],
-          "max views on AI Reels": [
-            "vues max sur un Reel IA",
-            "أعلى مشاهدات لريل بالذكاء الاصطناعي",
-          ],
-          Experience: ["Expérience", "الخبرة"],
-          "Artistic Manager": ["Responsable artistique", "مدير فني"],
-          "Digital Art Designer": ["Digital Art Designer", "مصمم فني رقمي"],
-          "Digital Art Director & Motion Designer": [
-            "Directeur Artistique Digital & Motion Designer",
-            "مدير فني رقمي ومصمم موشن",
-          ],
-          "Motion & Graphic Designer": [
-            "Motion & Graphic Designer",
-            "مصمم موشن وجرافيك",
-          ],
-          Internships: ["Stages", "تدريبات"],
-          Designer: ["Designer", "مصمم"],
-          "Same group of brands": [
-            "Mêmes marques du groupe",
-            "نفس علامات المجموعة",
-          ],
-          "Jan 2025 — Present": [
-            "Janv. 2025 — Aujourd’hui",
-            "يناير 2025 — حتى الآن",
-          ],
-          "Apr 2023 — Dec 2024": [
-            "Avr. 2023 — Déc. 2024",
-            "أبريل 2023 — ديسمبر 2024",
-          ],
-          "Feb 2022 — Mar 2023": [
-            "Févr. 2022 — Mars 2023",
-            "فبراير 2022 — مارس 2023",
-          ],
-          "Jul 2021 — Jan 2022": [
-            "Juil. 2021 — Janv. 2022",
-            "يوليو 2021 — يناير 2022",
-          ],
-          "Jan 2020 — Jun 2021": [
-            "Janv. 2020 — Juin 2021",
-            "يناير 2020 — يونيو 2021",
-          ],
-          "Jan 2020 — Dec 2020": [
-            "Janv. 2020 — Déc. 2020",
-            "يناير 2020 — ديسمبر 2020",
-          ],
-          "Art Direction": ["Direction artistique", "إخراج فني"],
-          "AI Creative": ["Créatif IA", "إبداع بالذكاء الاصطناعي"],
-          "Artistic Manager, 3S Group / GlobalNet": [
-            "Responsable artistique, 3S Group / GlobalNet",
-            "مدير فني، 3S Group / GlobalNet",
-          ],
-          "2D & 3D animation and spots": [
-            "Animation 2D & 3D et spots",
-            "رسوم متحركة 2D و3D وإعلانات",
-          ],
-          "Campaigns, social media, posters": [
-            "Campagnes, réseaux sociaux, affiches",
-            "حملات ومحتوى اجتماعي وملصقات",
-          ],
-          "AI visuals, cinematic videos, viral Reels": [
-            "Visuels IA, vidéos cinématographiques, Reels viraux",
-            "صور بالذكاء الاصطناعي وفيديوهات سينمائية وريلز فيروسية",
-          ],
-          Skills: ["Compétences", "المهارات"],
-          "AI tools": ["Outils IA", "أدوات الذكاء الاصطناعي"],
-          Education: ["Formation", "التعليم"],
-          "AI Creative Artist": [
-            "Artiste créatif IA",
-            "فنان إبداعي بالذكاء الاصطناعي",
-          ],
-          "Graphic design": ["Design graphique", "تصميم جرافيك"],
-          "Motion design": ["Motion design", "موشن ديزاين"],
-          "2D & 3D animation": ["Animation 2D & 3D", "رسوم متحركة 2D و3D"],
-          "Shooting & filming": ["Prise de vue & tournage", "تصوير وإخراج"],
-          Copywriting: ["Rédaction publicitaire", "كتابة إعلانية"],
-          "Drawing & music": ["Dessin & musique", "رسم وموسيقى"],
-          "Master’s degree in Image Design": [
-            "Master en Design d’image",
-            "ماجستير في تصميم الصورة",
-          ],
-          "Licence in Communication & Multimedia": [
-            "Licence en Communication & Multimédia",
-            "إجازة في الاتصال والوسائط المتعددة",
-          ],
-          "Motion design training": [
-            "Formation Motion design",
-            "تكوين في الموشن ديزاين",
-          ],
-          "Adobe training": ["Formation Adobe", "تكوين في Adobe"],
-          "3DS MAX training": ["Formation 3DS MAX", "تكوين في 3DS MAX"],
-          "Bachelor’s in computer science": [
-            "Baccalauréat en informatique",
-            "باكالوريا إعلامية",
-          ],
-          "Projects on Behance": ["Projets sur Behance", "مشروع على Behance"],
-          "Behance project views": [
-            "Vues des projets Behance",
-            "مشاهدات المشاريع على Behance",
-          ],
-          "Max views on an AI Reel": [
-            "Vues max sur un Reel IA",
-            "أعلى مشاهدات لريل بالذكاء الاصطناعي",
-          ],
-          Clients: ["Clients", "عملاء"],
-          "Views on social media": [
-            "Vues sur les réseaux sociaux",
-            "مشاهدات على وسائل التواصل",
-          ],
-          "Years of experience": ["Années d’expérience", "سنوات الخبرة"],
-          Menu: ["Menu", "القائمة"],
-          "Years of freelance work": [
-            "Années de freelance",
-            "سنوات من العمل الحر",
-          ],
-          "Clients & brands": ["Clients & marques", "العملاء والعلامات"],
-          "Worked with": ["Ils m’ont fait confiance", "عملتُ مع"],
-          "Have a project in mind?": ["Un projet en tête ?", "هل لديك مشروع؟"],
-          "Let’s talk →": ["Parlons-en →", "لنتحدث →"],
-          "Let’s work together": ["Travaillons ensemble", "لنعمل معاً"],
-          Name: ["Nom", "الاسم"],
-          Email: ["Email", "البريد الإلكتروني"],
-          Subject: ["Sujet", "الموضوع"],
-          Message: ["Message", "الرسالة"],
-          Send: ["Envoyer", "إرسال"],
-          "Filter projects": ["Filtrer les projets", "تصفية المشاريع"],
-          Language: ["Langue", "اللغة"],
-          Follow: ["Suivre", "تابعني"],
-          Navigate: ["Navigation", "التنقل"],
-          "Back to top ↑": ["Haut de page ↑", "إلى الأعلى ↑"],
-          "© 2026 Med Achref Zemzemi · Digital Art Director & Motion Designer":
-            [
-              "© 2026 Med Achref Zemzemi · Directeur Artistique Digital & Motion Designer",
-              "© 2026 محمد أشرف زمزمي · مدير فني رقمي ومصمم موشن",
-            ],
-          "Boumhel, Ben Arous, Tunisia": [
-            "Boumhel, Ben Arous, Tunisie",
-            "بومهل، بن عروس، تونس",
-          ],
-          views: ["vues", "مشاهدة"],
-          projects: ["projets", "مشروع"],
-          "Open on Behance": ["Ouvrir sur Behance", "افتح على Behance"],
-          "Start your project": ["Votre projet ?", "ابدأ مشروعك"],
-          "What would you like to create?": [
-            "Que voulez-vous créer ?",
-            "ماذا تريد أن تنشئ؟",
-          ],
-          Logo: ["Logo", "شعار"],
-          "Video animation": ["Animation vidéo", "فيديو أنيميشن"],
-          "Brand guidelines": ["Charte graphique", "هوية بصرية"],
-          "Social media content": [
-            "Contenu réseaux sociaux",
-            "محتوى مواقع التواصل",
-          ],
-          "Posters & print": ["Affiches & print", "ملصقات ومطبوعات"],
-          "AI creative content": [
-            "Contenu créatif IA",
-            "محتوى إبداعي بالذكاء الاصطناعي",
-          ],
-          Other: ["Autre", "أخرى"],
-          "Your name": ["Votre nom", "اسمك"],
-          "Your email": ["Votre email", "بريدك الإلكتروني"],
-          "Tell me about your project (optional)": [
-            "Parlez-moi de votre projet (facultatif)",
-            "حدثني عن مشروعك (اختياري)",
-          ],
-          "Send my request": ["Envoyer ma demande", "أرسل طلبي"],
-          Close: ["Fermer", "إغلاق"],
-          "Sending…": ["Envoi en cours…", "جارٍ الإرسال…"],
-          "Thank you! Your request has been sent.": [
-            "Merci ! Votre demande a bien été envoyée.",
-            "شكراً! تم إرسال طلبك.",
-          ],
-          "Could not send directly: your email app will open instead.": [
-            "Envoi direct impossible : votre application mail va s’ouvrir.",
-            "تعذر الإرسال المباشر: سيفتح تطبيق البريد.",
-          ],
-          "Please choose an option and enter your name and email.": [
-            "Choisissez une option et indiquez votre nom et votre email.",
-            "اختر خياراً وأدخل اسمك وبريدك.",
-          ],
-          "Please fill in all fields with a valid email.": [
-            "Remplissez tous les champs avec un email valide.",
-            "املأ كل الحقول ببريد صحيح.",
-          ],
-        };
-        function setAll() {
-          var b = document.getElementById("vall");
-          if (b)
-            b.textContent = tr("View all projects") + " (" + D.length + ")";
-        }
-        function tr(k) {
-          if (lang === "en") return k;
-          var v = T[k];
-          return v ? v[lang === "fr" ? 0 : 1] : k;
-        }
-        function card(p) {
-          var a = document.createElement("a");
-          a.className = "pc";
-          a.href =
-            "https://www.behance.net/gallery/" + p.id + "/" + (p.slug || "");
-          a.target = "_blank";
-          a.rel = "noopener";
-          var f = document.createElement("div");
-          f.className = "th";
-          function none() {
-            f.textContent = tr("Open on Behance");
-            f.classList.add("no");
-          }
-          if (p.img) {
-            var im = new Image();
-            im.alt = p.t;
-            im.loading = "lazy";
-            var U = ["808", "404"].map(function (z) {
-              return (
-                "https://mir-s3-cdn-cf.behance.net/projects/" + z + "/" + p.img
-              );
-            });
-            var st = 0;
-            im.onerror = function () {
-              if (st < U.length) {
-                im.referrerPolicy = "no-referrer";
-                im.src = U[st++];
-              } else {
-                none();
-              }
-            };
-            im.src = "img/" + p.id + "." + p.img.split(".").pop();
-            f.appendChild(im);
-          } else none();
-          var d = document.createElement("div");
-          var h = document.createElement("h3");
-          h.textContent = p.t;
-          var s = document.createElement("small");
-          var b = document.createElement("b");
-          b.textContent = tr(C[p.c] || C.s);
-          var w = document.createElement("span");
-          w.textContent =
-            (p.v > 0 ? p.v + " " + tr("views") + " · " : "") + "Behance ↗";
-          s.appendChild(b);
-          s.appendChild(w);
-          d.appendChild(h);
-          d.appendChild(s);
-          a.appendChild(f);
-          a.appendChild(d);
-          return a;
-        }
-        function fill(el, L) {
-          el.textContent = "";
-          L.forEach(function (p) {
-            el.appendChild(card(p));
-          });
-        }
-        fill(document.getElementById("pg"), D.slice(0, 6));
-        var ap = document.getElementById("ap"),
-          fl = document.getElementById("flt"),
-          cnt = document.getElementById("cnt");
-        var curK = "all";
-        function draw(k) {
-          curK = k;
-          var L = D.filter(function (p) {
-            return k === "all" || p.c === k;
-          });
-          cnt.textContent = L.length + " " + tr("projects");
-          fill(ap, L);
-        }
-        function mkflt() {
-          fl.textContent = "";
-          [["all", "All projects"]]
-            .concat(
-              Object.keys(C).map(function (k) {
-                return [k, C[k]];
-              }),
-            )
-            .forEach(function (x) {
-              var b = document.createElement("button");
-              b.textContent = tr(x[1]);
-              b.type = "button";
-              if (x[0] === curK) b.className = "on";
-              b.onclick = function () {
-                fl.querySelectorAll("button").forEach(function (y) {
-                  y.className = "";
-                });
-                b.className = "on";
-                draw(x[0]);
-              };
-              fl.appendChild(b);
-            });
-        }
-        mkflt();
-        draw("all");
-        function initCounters() {
-          var N = document.querySelectorAll("[data-n]");
-          function run(e) {
-            var t = +e.dataset.n,
-              s = e.dataset.s || "",
-              k = 0;
-            if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-              e.textContent = t.toLocaleString("en-US") + s;
-              return;
-            }
-            var st = performance.now();
-            (function f(n) {
-              var p = Math.min((n - st) / 1600, 1);
-              e.textContent =
-                Math.round(t * (1 - Math.pow(1 - p, 3))).toLocaleString(
-                  "en-US",
-                ) + s;
-              if (p < 1) requestAnimationFrame(f);
-            })(st);
-          }
-          if ("IntersectionObserver" in window) {
-            var o = new IntersectionObserver(
-              function (x) {
-                x.forEach(function (y) {
-                  if (y.isIntersecting) {
-                    run(y.target);
-                    o.unobserve(y.target);
-                  }
-                });
-              },
-              { threshold: 0.4 },
-            );
-            N.forEach(function (e) {
-              o.observe(e);
-            });
-          } else N.forEach(run);
-        }
-        function route() {
-          var all = location.hash === "#all";
-          document.body.classList.toggle("all", all);
-          if (all) draw(document.querySelector("#flt .on") ? curK : "all");
-          if (all) {
-            scrollTo(0, 0);
-          } else if (location.hash) {
-            var t = document.querySelector(location.hash);
-            if (t)
-              setTimeout(function () {
-                t.scrollIntoView();
-              }, 0);
-          }
-        }
-        addEventListener("hashchange", route);
-        route();
-        function applyLang(l) {
-          lang = l;
-          try {
-            localStorage.setItem("lg", l);
-          } catch (e) {}
-          document.documentElement.lang = l;
-          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
-          var lc = document.getElementById("lgc");
-          if (lc) lc.textContent = l.toUpperCase();
-          document.querySelectorAll(".lg button").forEach(function (b) {
-            b.className = b.dataset.l === l ? "on" : "";
-          });
-          fill(document.getElementById("pg"), D.slice(0, 6));
-          mkflt();
-          draw(curK);
-          var w = document.createTreeWalker(
-              document.body,
-              NodeFilter.SHOW_TEXT,
-              null,
-            ),
-            n,
-            L = [];
-          while ((n = w.nextNode())) {
-            if (!/^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName)) L.push(n);
-          }
-          L.forEach(function (n) {
-            if (n.__o === undefined) n.__o = n.nodeValue;
-            var k = n.__o.trim();
-            if (k && T[k]) {
-              var m = n.__o.match(/^(\s*)[\s\S]*?(\s*)$/);
-              n.nodeValue = m[1] + tr(k) + m[2];
-            }
-          });
-          document
-            .querySelectorAll("[placeholder],[aria-label]")
-            .forEach(function (e) {
-              ["placeholder", "aria-label"].forEach(function (a) {
-                if (e.hasAttribute(a)) {
-                  if (!e.hasAttribute("data-o-" + a))
-                    e.setAttribute("data-o-" + a, e.getAttribute(a));
-                  e.setAttribute(a, tr(e.getAttribute("data-o-" + a)));
-                }
-              });
-            });
-          var P = [
-            "Art Direction",
-            "Motion Design",
-            "Graphic Design",
-            "AI Creative",
-          ]
-            .map(function (x, i) {
-              return (
-                "<span" +
-                (i % 2 ? ' class="ol"' : "") +
-                ">" +
-                tr(x).toUpperCase() +
-                "</span><em>\u2726</em>"
-              );
-            })
-            .join("");
-          document.getElementById("mqt").innerHTML = P + P + P + P;
-          setAll();
-        }
-        document.querySelectorAll(".lg button").forEach(function (b) {
-          b.onclick = function () {
-            applyLang(b.dataset.l);
-          };
-        });
-        var mb = document.getElementById("mb"),
-          mn = document.getElementById("mnav"),
-          lgw = document.querySelector(".lgw"),
-          lgt = document.getElementById("lgt");
-        function closeMenu() {
-          mn.classList.remove("open");
-          mb.setAttribute("aria-expanded", "false");
-          lgw.classList.remove("open");
-          lgt.setAttribute("aria-expanded", "false");
-        }
-        mb.onclick = function () {
-          var o = mn.classList.toggle("open");
-          mb.setAttribute("aria-expanded", o);
-        };
-        lgt.onclick = function () {
-          var o = lgw.classList.toggle("open");
-          lgt.setAttribute("aria-expanded", o);
-        };
-        mn.querySelectorAll("nav a,.lg button").forEach(function (a) {
-          a.addEventListener("click", closeMenu);
-        });
-        addEventListener("keydown", function (e) {
-          if (e.key === "Escape") closeMenu();
-        });
-        document.addEventListener("click", function (e) {
-          if (!e.target.closest("header")) closeMenu();
-        });
-        /* ===== FORMULAIRE : Formspree =====
-   1) Crée un formulaire sur https://formspree.io  2) colle ici son identifiant (la fin de l'URL https://formspree.io/f/XXXXXXXX) */
-        var FORMSPREE_ID = "mdeerrrw";
-        var MAIL =
-          "zemprod1@gmail.com"; /* utilisé uniquement si l'envoi direct échoue */
-        function send(fields, subject, m, done) {
-          m.textContent = tr("Sending…");
-          var fallback = function () {
-            var body = Object.keys(fields)
-              .map(function (k) {
-                return k + ": " + fields[k];
-              })
-              .join("\n");
-            m.textContent = tr(
-              "Could not send directly: your email app will open instead.",
-            );
-            location.href =
-              "mailto:" +
-              MAIL +
-              "?subject=" +
-              encodeURIComponent(subject) +
-              "&body=" +
-              encodeURIComponent(body);
-          };
-          if (!FORMSPREE_ID || FORMSPREE_ID.indexOf("REMPLACE") === 0) {
-            fallback();
-            return;
-          }
-          fetch("https://formspree.io/f/" + FORMSPREE_ID, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(Object.assign({ _subject: subject }, fields)),
-          })
-            .then(function (r) {
-              if (!r.ok) throw 0;
-              return r.json();
-            })
-            .then(function () {
-              m.textContent = tr("Thank you! Your request has been sent.");
-              if (done) done();
-            })
-            .catch(fallback);
-        }
-        document.getElementById("cf").addEventListener("submit", function (ev) {
-          ev.preventDefault();
-          var f = ev.target,
-            m = document.getElementById("msg");
-          if (f.website.value) return;
-          if (
-            !f.name.value.trim() ||
-            !/^\S+@\S+\.\S+$/.test(f.email.value) ||
-            !f.subject.value.trim() ||
-            !f.message.value.trim()
-          ) {
-            m.textContent = tr("Please fill in all fields with a valid email.");
-            return;
-          }
-          send(
-            {
-              name: f.name.value,
-              email: f.email.value,
-              message: f.message.value,
-            },
-            f.subject.value,
-            m,
-            function () {
-              f.reset();
-            },
-          );
-        });
-        var wz = document.getElementById("wz"),
-          wf = document.getElementById("wzf"),
-          wm = document.getElementById("wzm");
-        document.getElementById("wzb").onclick = function () {
-          wz.hidden = !wz.hidden;
-        };
-        document.getElementById("wzx").onclick = function () {
-          wz.hidden = true;
-        };
-        addEventListener("keydown", function (e) {
-          if (e.key === "Escape") wz.hidden = true;
-        });
-        document.querySelectorAll("#wzo button").forEach(function (b) {
-          b.onclick = function () {
-            var on = b.getAttribute("aria-pressed") !== "true";
-            b.setAttribute("aria-pressed", on);
-            b.classList.toggle("on", on);
-          };
-        });
-        wf.addEventListener("submit", function (ev) {
-          ev.preventDefault();
-          if (wf.website.value) return;
-          var sv = [].map.call(
-            document.querySelectorAll("#wzo button.on"),
-            function (b) {
-              return b.dataset.fr;
-            },
-          );
-          if (
-            !sv.length ||
-            !wf.name.value.trim() ||
-            !/^\S+@\S+\.\S+$/.test(wf.email.value)
-          ) {
-            wm.textContent = tr(
-              "Please choose an option and enter your name and email.",
-            );
-            return;
-          }
-          send(
-            {
-              name: wf.name.value,
-              email: wf.email.value,
-              services: sv.join(", "),
-              message: wf.message.value || "-",
-            },
-            "Nouveau projet : " + sv.join(", "),
-            wm,
-            function () {
-              wf.reset();
-              document.querySelectorAll("#wzo button").forEach(function (b) {
-                b.className = "";
-                b.setAttribute("aria-pressed", "false");
-              });
-            },
-          );
-        });
+         (function () {
+           var rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+           var els = document.querySelectorAll(".rv");
+           if ("IntersectionObserver" in window && !rm) {
+             var io = new IntersectionObserver(
+               function (e) {
+                 e.forEach(function (x) {
+                   if (x.isIntersecting) {
+                     x.target.classList.add("on");
+                     io.unobserve(x.target);
+                   }
+                 });
+               },
+               { threshold: 0.12 },
+             );
+             els.forEach(function (el) {
+               io.observe(el);
+             });
+           } else {
+             els.forEach(function (el) {
+               el.classList.add("on");
+             });
+           }
+           if (!rm) {
+             var h = document.querySelector(".hero");
+             addEventListener(
+               "scroll",
+               function () {
+                 h.style.setProperty("--py", scrollY * 0.25 + "px");
+               },
+               { passive: true },
+             );
+           }
+           var D = [];
+           var C = {
+             m: "Motion Design",
+             s: "Social Media",
+             g: "Graphic Design",
+             c: "Campaigns & Branding",
+           };
+           var lang = "fr";
+           try {
+             lang = localStorage.getItem("lg") || "fr";
+           } catch (e) {}
+           var T = {
+             "View all projects": ["Voir tous les projets", "عرض كل المشاريع"],
+             "Trusted by": ["Ils me font confiance", "يثقون بي"],
+             Work: ["Projets", "أعمال"],
+             About: ["À propos", "من أنا"],
+             Career: ["Parcours", "المسار"],
+             Contact: ["Contact", "اتصل بي"],
+             "Digital content creator": [
+               "Créateur de contenu digital",
+               "صانع محتوى رقمي",
+             ],
+             "Digital Art Director & Motion Designer · AI Creative Artist": [
+               "Directeur Artistique Digital & Motion Designer · Artiste créatif IA",
+               "مدير فني رقمي ومصمم موشن · فنان إبداعي بالذكاء الاصطناعي",
+             ],
+             "Explore my work": ["Découvrir mes projets", "اكتشف أعمالي"],
+             "Selected work": ["Sélection", "أعمال مختارة"],
+             Projects: ["Projets", "المشاريع"],
+             "View all projects (74)": [
+               "Voir tous les projets (74)",
+               "عرض كل المشاريع (74)",
+             ],
+             "Behance profile ↗": ["Profil Behance ↗", "ملفي على Behance ↗"],
+             "← Back": ["← Retour", "← رجوع"],
+             Archive: ["Archives", "الأرشيف"],
+             "All projects": ["Tous les projets", "كل المشاريع"],
+             "See everything on Behance ↗": [
+               "Tout voir sur Behance ↗",
+               "شاهد كل شيء على Behance ↗",
+             ],
+             "Motion Design": ["Motion Design", "موشن ديزاين"],
+             "Social Media": ["Réseaux sociaux", "وسائل التواصل"],
+             "Graphic Design": ["Design graphique", "تصميم جرافيك"],
+             "Campaigns & Branding": ["Campagnes & Branding", "حملات وهوية"],
+             Profile: ["Profil", "نبذة"],
+             "Art Director and Motion Designer, graduated from an art school in communication, multimedia and graphic advertising. Creative in my own style, and ultra contemporary.":
+               [
+                 "Directeur artistique et motion designer, diplômé d’une école d’art en communication, multimédia et publicité graphique. Créatif à mon style, ultra contemporain.",
+                 "مدير فني ومصمم موشن، خريج مدرسة فنون في الاتصال والوسائط المتعددة والإعلان الغرافيكي. مبدع بأسلوبي الخاص وعصري جداً.",
+               ],
+             "Specialized in AI-generated visuals, cinematic videos, creative advertising and viral Reels, reaching up to 700K views.":
+               [
+                 "Spécialisé dans les visuels générés par IA, les vidéos cinématographiques, la publicité créative et les Reels viraux, jusqu’à 700K vues.",
+                 "متخصص في الصور المولّدة بالذكاء الاصطناعي والفيديوهات السينمائية والإعلانات الإبداعية والريلز الفيروسية بما يصل إلى 700 ألف مشاهدة.",
+               ],
+             "first graphic design internship": [
+               "premier stage en design graphique",
+               "أول تدريب في التصميم الجرافيكي",
+             ],
+             "max views on AI Reels": [
+               "vues max sur un Reel IA",
+               "أعلى مشاهدات لريل بالذكاء الاصطناعي",
+             ],
+             Experience: ["Expérience", "الخبرة"],
+             "Artistic Manager": ["Responsable artistique", "مدير فني"],
+             "Digital Art Designer": ["Digital Art Designer", "مصمم فني رقمي"],
+             "Digital Art Director & Motion Designer": [
+               "Directeur Artistique Digital & Motion Designer",
+               "مدير فني رقمي ومصمم موشن",
+             ],
+             "Motion & Graphic Designer": [
+               "Motion & Graphic Designer",
+               "مصمم موشن وجرافيك",
+             ],
+             Internships: ["Stages", "تدريبات"],
+             Designer: ["Designer", "مصمم"],
+             "Same group of brands": [
+               "Mêmes marques du groupe",
+               "نفس علامات المجموعة",
+             ],
+             "Jan 2025 — Present": [
+               "Janv. 2025 — Aujourd’hui",
+               "يناير 2025 — حتى الآن",
+             ],
+             "Apr 2023 — Dec 2024": [
+               "Avr. 2023 — Déc. 2024",
+               "أبريل 2023 — ديسمبر 2024",
+             ],
+             "Feb 2022 — Mar 2023": [
+               "Févr. 2022 — Mars 2023",
+               "فبراير 2022 — مارس 2023",
+             ],
+             "Jul 2021 — Jan 2022": [
+               "Juil. 2021 — Janv. 2022",
+               "يوليو 2021 — يناير 2022",
+             ],
+             "Jan 2020 — Jun 2021": [
+               "Janv. 2020 — Juin 2021",
+               "يناير 2020 — يونيو 2021",
+             ],
+             "Jan 2020 — Dec 2020": [
+               "Janv. 2020 — Déc. 2020",
+               "يناير 2020 — ديسمبر 2020",
+             ],
+             "Art Direction": ["Direction artistique", "إخراج فني"],
+             "AI Creative": ["Créatif IA", "إبداع بالذكاء الاصطناعي"],
+             "Artistic Manager, 3S Group / GlobalNet": [
+               "Responsable artistique, 3S Group / GlobalNet",
+               "مدير فني، 3S Group / GlobalNet",
+             ],
+             "2D & 3D animation and spots": [
+               "Animation 2D & 3D et spots",
+               "رسوم متحركة 2D و3D وإعلانات",
+             ],
+             "Campaigns, social media, posters": [
+               "Campagnes, réseaux sociaux, affiches",
+               "حملات ومحتوى اجتماعي وملصقات",
+             ],
+             "AI visuals, cinematic videos, viral Reels": [
+               "Visuels IA, vidéos cinématographiques, Reels viraux",
+               "صور بالذكاء الاصطناعي وفيديوهات سينمائية وريلز فيروسية",
+             ],
+             Skills: ["Compétences", "المهارات"],
+             "AI tools": ["Outils IA", "أدوات الذكاء الاصطناعي"],
+             Education: ["Formation", "التعليم"],
+             "AI Creative Artist": [
+               "Artiste créatif IA",
+               "فنان إبداعي بالذكاء الاصطناعي",
+             ],
+             "Graphic design": ["Design graphique", "تصميم جرافيك"],
+             "Motion design": ["Motion design", "موشن ديزاين"],
+             "2D & 3D animation": ["Animation 2D & 3D", "رسوم متحركة 2D و3D"],
+             "Shooting & filming": ["Prise de vue & tournage", "تصوير وإخراج"],
+             Copywriting: ["Rédaction publicitaire", "كتابة إعلانية"],
+             "Drawing & music": ["Dessin & musique", "رسم وموسيقى"],
+             "Master’s degree in Image Design": [
+               "Master en Design d’image",
+               "ماجستير في تصميم الصورة",
+             ],
+             "Licence in Communication & Multimedia": [
+               "Licence en Communication & Multimédia",
+               "إجازة في الاتصال والوسائط المتعددة",
+             ],
+             "Motion design training": [
+               "Formation Motion design",
+               "تكوين في الموشن ديزاين",
+             ],
+             "Adobe training": ["Formation Adobe", "تكوين في Adobe"],
+             "3DS MAX training": ["Formation 3DS MAX", "تكوين في 3DS MAX"],
+             "Bachelor’s in computer science": [
+               "Baccalauréat en informatique",
+               "باكالوريا إعلامية",
+             ],
+             "Projects on Behance": ["Projets sur Behance", "مشروع على Behance"],
+             "Behance project views": [
+               "Vues des projets Behance",
+               "مشاهدات المشاريع على Behance",
+             ],
+             "Max views on an AI Reel": [
+               "Vues max sur un Reel IA",
+               "أعلى مشاهدات لريل بالذكاء الاصطناعي",
+             ],
+             Clients: ["Clients", "عملاء"],
+             "Views on social media": [
+               "Vues sur les réseaux sociaux",
+               "مشاهدات على وسائل التواصل",
+             ],
+             "Years of experience": ["Années d’expérience", "سنوات الخبرة"],
+             Menu: ["Menu", "القائمة"],
+             "Years of freelance work": [
+               "Années de freelance",
+               "سنوات من العمل الحر",
+             ],
+             "Clients & brands": ["Clients & marques", "العملاء والعلامات"],
+             "Worked with": ["Ils m’ont fait confiance", "عملتُ مع"],
+             "Have a project in mind?": ["Un projet en tête ?", "هل لديك مشروع؟"],
+             "Let’s talk →": ["Parlons-en →", "لنتحدث →"],
+             "Let’s work together": ["Travaillons ensemble", "لنعمل معاً"],
+             Name: ["Nom", "الاسم"],
+             Email: ["Email", "البريد الإلكتروني"],
+             Subject: ["Sujet", "الموضوع"],
+             Message: ["Message", "الرسالة"],
+             Send: ["Envoyer", "إرسال"],
+             "Filter projects": ["Filtrer les projets", "تصفية المشاريع"],
+             Language: ["Langue", "اللغة"],
+             Follow: ["Suivre", "تابعني"],
+             Navigate: ["Navigation", "التنقل"],
+             "Back to top ↑": ["Haut de page ↑", "إلى الأعلى ↑"],
+             "© 2026 Med Achref Zemzemi · Digital Art Director & Motion Designer":
+               [
+                 "© 2026 Med Achref Zemzemi · Directeur Artistique Digital & Motion Designer",
+                 "© 2026 محمد أشرف زمزمي · مدير فني رقمي ومصمم موشن",
+               ],
+             "Boumhel, Ben Arous, Tunisia": [
+               "Boumhel, Ben Arous, Tunisie",
+               "بومهل، بن عروس، تونس",
+             ],
+             views: ["vues", "مشاهدة"],
+             projects: ["projets", "مشروع"],
+             "Open on Behance": ["Ouvrir sur Behance", "افتح على Behance"],
+             "Start your project": ["Votre projet ?", "ابدأ مشروعك"],
+             "What would you like to create?": [
+               "Que voulez-vous créer ?",
+               "ماذا تريد أن تنشئ؟",
+             ],
+             Logo: ["Logo", "شعار"],
+             "Video animation": ["Animation vidéo", "فيديو أنيميشن"],
+             "Brand guidelines": ["Charte graphique", "هوية بصرية"],
+             "Social media content": [
+               "Contenu réseaux sociaux",
+               "محتوى مواقع التواصل",
+             ],
+             "Posters & print": ["Affiches & print", "ملصقات ومطبوعات"],
+             "AI creative content": [
+               "Contenu créatif IA",
+               "محتوى إبداعي بالذكاء الاصطناعي",
+             ],
+             Other: ["Autre", "أخرى"],
+             "Your name": ["Votre nom", "اسمك"],
+             "Your email": ["Votre email", "بريدك الإلكتروني"],
+             "Tell me about your project (optional)": [
+               "Parlez-moi de votre projet (facultatif)",
+               "حدثني عن مشروعك (اختياري)",
+             ],
+             "Send my request": ["Envoyer ma demande", "أرسل طلبي"],
+             Close: ["Fermer", "إغلاق"],
+             "Sending…": ["Envoi en cours…", "جارٍ الإرسال…"],
+             "Thank you! Your request has been sent.": [
+               "Merci ! Votre demande a bien été envoyée.",
+               "شكراً! تم إرسال طلبك.",
+             ],
+             "Could not send directly: your email app will open instead.": [
+               "Envoi direct impossible : votre application mail va s’ouvrir.",
+               "تعذر الإرسال المباشر: سيفتح تطبيق البريد.",
+             ],
+             "Please choose an option and enter your name and email.": [
+               "Choisissez une option et indiquez votre nom et votre email.",
+               "اختر خياراً وأدخل اسمك وبريدك.",
+             ],
+             "Please fill in all fields with a valid email.": [
+               "Remplissez tous les champs avec un email valide.",
+               "املأ كل الحقول ببريد صحيح.",
+             ],
+           };
+           function setAll() {
+             var b = document.getElementById("vall");
+             if (b)
+               b.textContent = tr("View all projects") + " (" + D.length + ")";
+           }
+           function tr(k) {
+             if (lang === "en") return k;
+             var v = T[k];
+             return v ? v[lang === "fr" ? 0 : 1] : k;
+           }
+           function card(p) {
+             var a = document.createElement("a");
+             a.className = "pc";
+             a.href =
+               "https://www.behance.net/gallery/" + p.id + "/" + (p.slug || "");
+             a.target = "_blank";
+             a.rel = "noopener";
+             var f = document.createElement("div");
+             f.className = "th";
+             function none() {
+               f.textContent = tr("Open on Behance");
+               f.classList.add("no");
+             }
+             if (p.img) {
+               var im = new Image();
+               im.alt = p.t;
+               im.loading = "lazy";
+               var U = ["808", "404"].map(function (z) {
+                 return (
+                   "https://mir-s3-cdn-cf.behance.net/projects/" + z + "/" + p.img
+                 );
+               });
+               var st = 0;
+               im.onerror = function () {
+                 if (st < U.length) {
+                   im.referrerPolicy = "no-referrer";
+                   im.src = U[st++];
+                 } else {
+                   none();
+                 }
+               };
+               im.src = "img/" + p.id + "." + p.img.split(".").pop();
+               f.appendChild(im);
+             } else none();
+             var d = document.createElement("div");
+             var h = document.createElement("h3");
+             h.textContent = p.t;
+             var s = document.createElement("small");
+             var b = document.createElement("b");
+             b.textContent = tr(C[p.c] || C.s);
+             var w = document.createElement("span");
+             w.textContent =
+               (p.v > 0 ? p.v + " " + tr("views") + " · " : "") + "Behance ↗";
+             s.appendChild(b);
+             s.appendChild(w);
+             d.appendChild(h);
+             d.appendChild(s);
+             a.appendChild(f);
+             a.appendChild(d);
+             return a;
+           }
+           function fill(el, L) {
+             el.textContent = "";
+             L.forEach(function (p) {
+               el.appendChild(card(p));
+             });
+           }
+           fill(document.getElementById("pg"), D.slice(0, 6));
+           var ap = document.getElementById("ap"),
+             fl = document.getElementById("flt"),
+             cnt = document.getElementById("cnt");
+           var curK = "all";
+           function draw(k) {
+             curK = k;
+             var L = D.filter(function (p) {
+               return k === "all" || p.c === k;
+             });
+             cnt.textContent = L.length + " " + tr("projects");
+             fill(ap, L);
+           }
+           function mkflt() {
+             fl.textContent = "";
+             [["all", "All projects"]]
+               .concat(
+                 Object.keys(C).map(function (k) {
+                   return [k, C[k]];
+                 }),
+               )
+               .forEach(function (x) {
+                 var b = document.createElement("button");
+                 b.textContent = tr(x[1]);
+                 b.type = "button";
+                 if (x[0] === curK) b.className = "on";
+                 b.onclick = function () {
+                   fl.querySelectorAll("button").forEach(function (y) {
+                     y.className = "";
+                   });
+                   b.className = "on";
+                   draw(x[0]);
+                 };
+                 fl.appendChild(b);
+               });
+           }
+           mkflt();
+           draw("all");
+           function initCounters() {
+             var N = document.querySelectorAll("[data-n]");
+             function run(e) {
+               var t = +e.dataset.n,
+                 s = e.dataset.s || "",
+                 k = 0;
+               if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                 e.textContent = t.toLocaleString("en-US") + s;
+                 return;
+               }
+               var st = performance.now();
+               (function f(n) {
+                 var p = Math.min((n - st) / 1600, 1);
+                 e.textContent =
+                   Math.round(t * (1 - Math.pow(1 - p, 3))).toLocaleString(
+                     "en-US",
+                   ) + s;
+                 if (p < 1) requestAnimationFrame(f);
+               })(st);
+             }
+             if ("IntersectionObserver" in window) {
+               var o = new IntersectionObserver(
+                 function (x) {
+                   x.forEach(function (y) {
+                     if (y.isIntersecting) {
+                       run(y.target);
+                       o.unobserve(y.target);
+                     }
+                   });
+                 },
+                 { threshold: 0.4 },
+               );
+               N.forEach(function (e) {
+                 o.observe(e);
+               });
+             } else N.forEach(run);
+           }
+           function route() {
+             var all = location.hash === "#all";
+             document.body.classList.toggle("all", all);
+             if (all) draw(document.querySelector("#flt .on") ? curK : "all");
+             if (all) {
+               scrollTo(0, 0);
+             } else if (location.hash) {
+               var t = document.querySelector(location.hash);
+               if (t)
+                 setTimeout(function () {
+                   t.scrollIntoView();
+                 }, 0);
+             }
+           }
+           addEventListener("hashchange", route);
+           route();
+           function applyLang(l) {
+             lang = l;
+             try {
+               localStorage.setItem("lg", l);
+             } catch (e) {}
+             document.documentElement.lang = l;
+             document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+             var lc = document.getElementById("lgc");
+             if (lc) lc.textContent = l.toUpperCase();
+             document.querySelectorAll(".lg button").forEach(function (b) {
+               b.className = b.dataset.l === l ? "on" : "";
+             });
+             fill(document.getElementById("pg"), D.slice(0, 6));
+             mkflt();
+             draw(curK);
+             var w = document.createTreeWalker(
+                 document.body,
+                 NodeFilter.SHOW_TEXT,
+                 null,
+               ),
+               n,
+               L = [];
+             while ((n = w.nextNode())) {
+               if (!/^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName)) L.push(n);
+             }
+             L.forEach(function (n) {
+               if (n.__o === undefined) n.__o = n.nodeValue;
+               var k = n.__o.trim();
+               if (k && T[k]) {
+                 var m = n.__o.match(/^(\s*)[\s\S]*?(\s*)$/);
+                 n.nodeValue = m[1] + tr(k) + m[2];
+               }
+             });
+             document
+               .querySelectorAll("[placeholder],[aria-label]")
+               .forEach(function (e) {
+                 ["placeholder", "aria-label"].forEach(function (a) {
+                   if (e.hasAttribute(a)) {
+                     if (!e.hasAttribute("data-o-" + a))
+                       e.setAttribute("data-o-" + a, e.getAttribute(a));
+                     e.setAttribute(a, tr(e.getAttribute("data-o-" + a)));
+                   }
+                 });
+               });
+             var P = [
+               "Art Direction",
+               "Motion Design",
+               "Graphic Design",
+               "AI Creative",
+             ]
+               .map(function (x, i) {
+                 return (
+                   "<span" +
+                   (i % 2 ? ' class="ol"' : "") +
+                   ">" +
+                   tr(x).toUpperCase() +
+                   "</span><em>\u2726</em>"
+                 );
+               })
+               .join("");
+             document.getElementById("mqt").innerHTML = P + P + P + P;
+             setAll();
+           }
+           document.querySelectorAll(".lg button").forEach(function (b) {
+             b.onclick = function () {
+               applyLang(b.dataset.l);
+             };
+           });
+           var mb = document.getElementById("mb"),
+             mn = document.getElementById("mnav"),
+             lgw = document.querySelector(".lgw"),
+             lgt = document.getElementById("lgt");
+           function closeMenu() {
+             mn.classList.remove("open");
+             mb.setAttribute("aria-expanded", "false");
+             lgw.classList.remove("open");
+             lgt.setAttribute("aria-expanded", "false");
+           }
+           mb.onclick = function () {
+             var o = mn.classList.toggle("open");
+             mb.setAttribute("aria-expanded", o);
+           };
+           lgt.onclick = function () {
+             var o = lgw.classList.toggle("open");
+             lgt.setAttribute("aria-expanded", o);
+           };
+           mn.querySelectorAll("nav a,.lg button").forEach(function (a) {
+             a.addEventListener("click", closeMenu);
+           });
+           addEventListener("keydown", function (e) {
+             if (e.key === "Escape") closeMenu();
+           });
+           document.addEventListener("click", function (e) {
+             if (!e.target.closest("header")) closeMenu();
+           });
+           /* ===== FORMULAIRE : Formspree =====
+      1) Crée un formulaire sur https://formspree.io  2) colle ici son identifiant (la fin de l'URL https://formspree.io/f/XXXXXXXX) */
+           var FORMSPREE_ID = "mdeerrrw";
+           var MAIL =
+             "zemprod1@gmail.com"; /* utilisé uniquement si l'envoi direct échoue */
+           function send(fields, subject, m, done) {
+             m.textContent = tr("Sending…");
+             var fallback = function () {
+               var body = Object.keys(fields)
+                 .map(function (k) {
+                   return k + ": " + fields[k];
+                 })
+                 .join("\n");
+               m.textContent = tr(
+                 "Could not send directly: your email app will open instead.",
+               );
+               location.href =
+                 "mailto:" +
+                 MAIL +
+                 "?subject=" +
+                 encodeURIComponent(subject) +
+                 "&body=" +
+                 encodeURIComponent(body);
+             };
+             if (!FORMSPREE_ID || FORMSPREE_ID.indexOf("REMPLACE") === 0) {
+               fallback();
+               return;
+             }
+             fetch("https://formspree.io/f/" + FORMSPREE_ID, {
+               method: "POST",
+               headers: {
+                 "Content-Type": "application/json",
+                 Accept: "application/json",
+               },
+               body: JSON.stringify(Object.assign({ _subject: subject }, fields)),
+             })
+               .then(function (r) {
+                 if (!r.ok) throw 0;
+                 return r.json();
+               })
+               .then(function () {
+                 m.textContent = tr("Thank you! Your request has been sent.");
+                 if (done) done();
+               })
+               .catch(fallback);
+           }
+           document.getElementById("cf").addEventListener("submit", function (ev) {
+             ev.preventDefault();
+             var f = ev.target,
+               m = document.getElementById("msg");
+             if (f.website.value) return;
+             if (
+               !f.name.value.trim() ||
+               !/^\S+@\S+\.\S+$/.test(f.email.value) ||
+               !f.subject.value.trim() ||
+               !f.message.value.trim()
+             ) {
+               m.textContent = tr("Please fill in all fields with a valid email.");
+               return;
+             }
+             send(
+               {
+                 name: f.name.value,
+                 email: f.email.value,
+                 message: f.message.value,
+               },
+               f.subject.value,
+               m,
+               function () {
+                 f.reset();
+               },
+             );
+           });
+           var wz = document.getElementById("wz"),
+             wf = document.getElementById("wzf"),
+             wm = document.getElementById("wzm");
+           document.getElementById("wzb").onclick = function () {
+             wz.hidden = !wz.hidden;
+           };
+           document.getElementById("wzx").onclick = function () {
+             wz.hidden = true;
+           };
+           addEventListener("keydown", function (e) {
+             if (e.key === "Escape") wz.hidden = true;
+           });
+           document.querySelectorAll("#wzo button").forEach(function (b) {
+             b.onclick = function () {
+               var on = b.getAttribute("aria-pressed") !== "true";
+               b.setAttribute("aria-pressed", on);
+               b.classList.toggle("on", on);
+             };
+           });
+           wf.addEventListener("submit", function (ev) {
+             ev.preventDefault();
+             if (wf.website.value) return;
+             var sv = [].map.call(
+               document.querySelectorAll("#wzo button.on"),
+               function (b) {
+                 return b.dataset.fr;
+               },
+             );
+             if (
+               !sv.length ||
+               !wf.name.value.trim() ||
+               !/^\S+@\S+\.\S+$/.test(wf.email.value)
+             ) {
+               wm.textContent = tr(
+                 "Please choose an option and enter your name and email.",
+               );
+               return;
+             }
+             send(
+               {
+                 name: wf.name.value,
+                 email: wf.email.value,
+                 services: sv.join(", "),
+                 message: wf.message.value || "-",
+               },
+               "Nouveau projet : " + sv.join(", "),
+               wm,
+               function () {
+                 wf.reset();
+                 document.querySelectorAll("#wzo button").forEach(function (b) {
+                   b.className = "";
+                   b.setAttribute("aria-pressed", "false");
+                 });
+               },
+             );
+           });
 
-        function lt(el) {
-          var t = el.textContent;
-          el.textContent = "";
-          [].forEach.call(t, function (c, i) {
-            var s = document.createElement("s");
-            s.textContent = c;
-            s.style.setProperty("--d", i);
-            el.appendChild(s);
-          });
-        }
-        document.querySelectorAll("h1 span i").forEach(lt);
-        lt(document.querySelector(".zz"));
-        document.querySelector(".orb img").src =
-          document.querySelector(".me").src;
-        var gl = document.querySelector(".gl"),
-          spb = document.querySelector(".sp"),
-          mq = document.querySelector(".mq"),
-          hero = document.querySelector(".hero"),
-          gx = 0,
-          gy = 0,
-          tx = 0,
-          ty = 0,
-          ly = scrollY,
-          sk = 0;
-        if (!rm) {
-          addEventListener(
-            "pointermove",
-            function (e) {
-              tx = e.clientX;
-              ty = e.clientY;
-              hero.style.setProperty(
-                "--mx",
-                (e.clientX / innerWidth - 0.5) * -50 + "px",
-              );
-              var t = e.target;
-              if (!t.closest) return;
-              var p = t.closest(".pc");
-              if (p) {
-                var f = p.querySelector(".th"),
-                  r = f.getBoundingClientRect();
-                f.style.setProperty(
-                  "--ry",
-                  ((e.clientX - r.left) / r.width - 0.5) * 10 + "deg",
-                );
-                f.style.setProperty(
-                  "--rx",
-                  ((e.clientY - r.top) / r.height - 0.5) * -10 + "deg",
-                );
-              }
-              var c = t.closest(".cl");
-              if (c) {
-                var r2 = c.getBoundingClientRect();
-                c.style.setProperty("--x", e.clientX - r2.left + "px");
-                c.style.setProperty("--y", e.clientY - r2.top + "px");
-              }
-              var b = t.closest(".btn");
-              if (b) {
-                var r3 = b.getBoundingClientRect();
-                b.style.setProperty(
-                  "--tx",
-                  (e.clientX - r3.left - r3.width / 2) * 0.25 + "px",
-                );
-                b.style.setProperty(
-                  "--ty",
-                  (e.clientY - r3.top - r3.height / 2) * 0.35 + "px",
-                );
-              }
-            },
-            { passive: true },
-          );
-          addEventListener("pointerout", function (e) {
-            var t = e.target.closest && e.target.closest(".pc,.btn");
-            if (!t || t.contains(e.relatedTarget)) return;
-            var f = t.classList.contains("pc") ? t.querySelector(".th") : t;
-            ["--rx", "--ry", "--tx", "--ty"].forEach(function (k) {
-              f.style.removeProperty(k);
-            });
-          });
-          (function L() {
-            gx += (tx - gx) * 0.12;
-            gy += (ty - gy) * 0.12;
-            gl.style.setProperty("--gx", gx + "px");
-            gl.style.setProperty("--gy", gy + "px");
-            sk *= 0.9;
-            mq.style.setProperty("--sk", sk + "deg");
-            requestAnimationFrame(L);
-          })();
-        }
-        addEventListener(
-          "scroll",
-          function () {
-            var d = scrollY - ly;
-            ly = scrollY;
-            sk = Math.max(-12, Math.min(12, d * -0.4));
-            spb.style.setProperty(
-              "--p",
-              scrollY /
-                Math.max(
-                  1,
-                  document.documentElement.scrollHeight - innerHeight,
-                ),
-            );
-          },
-          { passive: true },
-        );
+           function lt(el) {
+             var t = el.textContent;
+             el.textContent = "";
+             [].forEach.call(t, function (c, i) {
+               var s = document.createElement("s");
+               s.textContent = c;
+               s.style.setProperty("--d", i);
+               el.appendChild(s);
+             });
+           }
+           document.querySelectorAll("h1 span i").forEach(lt);
+           lt(document.querySelector(".zz"));
+           <!-- document.querySelector(".orb img").src =
+             document.querySelector(".me").src; -->
+           var gl = document.querySelector(".gl"),
+             spb = document.querySelector(".sp"),
+             mq = document.querySelector(".mq"),
+             hero = document.querySelector(".hero"),
+             gx = 0,
+             gy = 0,
+             tx = 0,
+             ty = 0,
+             ly = scrollY,
+             sk = 0;
+           if (!rm) {
+             addEventListener(
+               "pointermove",
+               function (e) {
+                 tx = e.clientX;
+                 ty = e.clientY;
+                 hero.style.setProperty(
+                   "--mx",
+                   (e.clientX / innerWidth - 0.5) * -50 + "px",
+                 );
+                 var t = e.target;
+                 if (!t.closest) return;
+                 var p = t.closest(".pc");
+                 if (p) {
+                   var f = p.querySelector(".th"),
+                     r = f.getBoundingClientRect();
+                   f.style.setProperty(
+                     "--ry",
+                     ((e.clientX - r.left) / r.width - 0.5) * 10 + "deg",
+                   );
+                   f.style.setProperty(
+                     "--rx",
+                     ((e.clientY - r.top) / r.height - 0.5) * -10 + "deg",
+                   );
+                 }
+                 var c = t.closest(".cl");
+                 if (c) {
+                   var r2 = c.getBoundingClientRect();
+                   c.style.setProperty("--x", e.clientX - r2.left + "px");
+                   c.style.setProperty("--y", e.clientY - r2.top + "px");
+                 }
+                 var b = t.closest(".btn");
+                 if (b) {
+                   var r3 = b.getBoundingClientRect();
+                   b.style.setProperty(
+                     "--tx",
+                     (e.clientX - r3.left - r3.width / 2) * 0.25 + "px",
+                   );
+                   b.style.setProperty(
+                     "--ty",
+                     (e.clientY - r3.top - r3.height / 2) * 0.35 + "px",
+                   );
+                 }
+               },
+               { passive: true },
+             );
+             addEventListener("pointerout", function (e) {
+               var t = e.target.closest && e.target.closest(".pc,.btn");
+               if (!t || t.contains(e.relatedTarget)) return;
+               var f = t.classList.contains("pc") ? t.querySelector(".th") : t;
+               ["--rx", "--ry", "--tx", "--ty"].forEach(function (k) {
+                 f.style.removeProperty(k);
+               });
+             });
+             (function L() {
+               gx += (tx - gx) * 0.12;
+               gy += (ty - gy) * 0.12;
+               gl.style.setProperty("--gx", gx + "px");
+               gl.style.setProperty("--gy", gy + "px");
+               sk *= 0.9;
+               mq.style.setProperty("--sk", sk + "deg");
+               requestAnimationFrame(L);
+             })();
+           }
+           addEventListener(
+             "scroll",
+             function () {
+               var d = scrollY - ly;
+               ly = scrollY;
+               sk = Math.max(-12, Math.min(12, d * -0.4));
+               spb.style.setProperty(
+                 "--p",
+                 scrollY /
+                   Math.max(
+                     1,
+                     document.documentElement.scrollHeight - innerHeight,
+                   ),
+               );
+             },
+             { passive: true },
+           );
 
-        applyLang(lang);
-        fetch("projects.json", { cache: "no-cache" })
-          .then(function (r) {
-            if (!r.ok) throw 0;
-            return r.json();
-          })
-          .then(function (J) {
-            D = (J.projects || []).map(function (p) {
-              return {
-                id: p.id,
-                c: p.cat,
-                v: +p.views || 0,
-                t: p.title,
-                img: p.img,
-                slug: p.slug,
-              };
-            });
-            applyLang(lang);
-            initCounters();
-            route();
-          })
-          .catch(function () {
-            var pg = document.getElementById("pg");
-            pg.textContent = "";
-            var a = document.createElement("a");
-            a.className = "btn";
-            a.href = "https://www.behance.net/achrefzemzemi/projects";
-            a.target = "_blank";
-            a.rel = "noopener";
-            a.textContent = tr("Open on Behance");
-            pg.appendChild(a);
-            initCounters();
-          });
-      })();
+           applyLang(lang);
+           fetch("projects.json", { cache: "no-cache" })
+             .then(function (r) {
+               if (!r.ok) throw 0;
+               return r.json();
+             })
+             .then(function (J) {
+               D = (J.projects || []).map(function (p) {
+                 return {
+                   id: p.id,
+                   c: p.cat,
+                   v: +p.views || 0,
+                   t: p.title,
+                   img: p.img,
+                   slug: p.slug,
+                 };
+               });
+               applyLang(lang);
+               initCounters();
+               route();
+             })
+             .catch(function () {
+               var pg = document.getElementById("pg");
+               pg.textContent = "";
+               var a = document.createElement("a");
+               a.className = "btn";
+               a.href = "https://www.behance.net/achrefzemzemi/projects";
+               a.target = "_blank";
+               a.rel = "noopener";
+               a.textContent = tr("Open on Behance");
+               pg.appendChild(a);
+               initCounters();
+             });
+         })();
     </script>
   </body>
 </html>
