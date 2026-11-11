@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 """
-Synchronise projects.json avec ton profil Behance et télécharge les miniatures dans img/.
+Synchronise projects.json avec ton profil Behance et retélécharge TOUTES les miniatures dans img/.
 
-- Ajoute en tête de liste les NOUVEAUX projets trouvés sur Behance.
-- Pour les projets existants :
-    * met à jour le nombre de vues quand Behance le fournit ;
-    * remplace la couverture si elle a changé sur Behance (et la retélécharge) ;
-    * suit le titre Behance, SAUF si tu l'as retouché à la main.
-- Ne supprime rien : pour retirer un projet, supprime-le à la main dans projects.json.
-- Corrections manuelles : overrides.json  ->  {"ID_DU_PROJET": {"cat": "g", "title": "Nouveau titre"}}
+À chaque exécution :
+- l'ORDRE des projets suit exactement celui de Behance ;
+- les couvertures sont toujours retéléchargées (l'ancienne image est remplacée,
+  même si Behance a gardé le même nom de fichier) ;
+- les nouveaux projets sont ajoutés, le nombre de vues est mis à jour ;
+- le titre suit Behance, SAUF si tu l'as retouché à la main ;
+- la catégorie ("cat") que tu as choisie est conservée.
 
-Stdlib uniquement (aucun pip install). Usage :  python scripts/sync_behance.py
+Projets présents dans projects.json mais plus trouvés sur Behance :
+- gardés à la fin de la liste par sécurité (si Behance renvoie une liste partielle) ;
+- supprimés (JSON + image) si tu lances avec --prune.
+
+Corrections manuelles : overrides.json  ->  {"ID_DU_PROJET": {"cat": "g", "title": "Nouveau titre"}}
+
+Stdlib uniquement (aucun pip install). Usage :
+    python scripts/sync_behance.py
+    python scripts/sync_behance.py --prune
 """
+import glob
 import json
 import os
 import re
@@ -218,7 +227,13 @@ def guess_cat(title):
 # ---------------------------------------------------------------- images
 
 
-def download_missing(projects):
+def _existing_files(pid):
+    return glob.glob(os.path.join(IMG_DIR, f"{pid}.*"))
+
+
+def download_all(projects):
+    """Retélécharge TOUTES les couvertures. L'ancienne image n'est supprimée
+    qu'une fois la nouvelle récupérée (pas de perte en cas d'échec réseau)."""
     os.makedirs(IMG_DIR, exist_ok=True)
     ok = fail = 0
     for p in projects:
@@ -226,79 +241,94 @@ def download_missing(projects):
             continue
         ext = p["img"].rsplit(".", 1)[-1]
         dest = os.path.join(IMG_DIR, f"{p['id']}.{ext}")
-        if os.path.exists(dest) and os.path.getsize(dest) > 0:
-            continue
+        data = None
         for size in ("808", "404", "max_808"):
             try:
                 req = urllib.request.Request(
-                    f"https://mir-s3-cdn-cf.behance.net/projects/{size}/{p['img']}", headers={"User-Agent": UA})
+                    f"https://mir-s3-cdn-cf.behance.net/projects/{size}/{p['img']}",
+                    headers={"User-Agent": UA})
                 data = urllib.request.urlopen(req, timeout=30).read()
                 if data:
-                    with open(dest, "wb") as fh:
-                        fh.write(data)
-                    ok += 1
                     break
             except Exception:  # noqa: BLE001
-                continue
+                data = None
+        if data:
+            for old in _existing_files(p["id"]):  # supprime l'ancienne image (toute extension)
+                if os.path.abspath(old) != os.path.abspath(dest):
+                    os.remove(old)
+            with open(dest, "wb") as fh:  # écrase la précédente
+                fh.write(data)
+            ok += 1
         else:
             fail += 1
-            print(f"  [!] image introuvable pour {p['id']} (le site utilisera le CDN Behance)")
+            print(f"  [!] image introuvable pour {p['id']} (ancienne image conservée si elle existe)")
         time.sleep(0.2)
-    print(f"Images : {ok} téléchargée(s), {fail} échec(s)")
+    print(f"Images : {ok} retéléchargée(s), {fail} échec(s)")
 
 
 # ---------------------------------------------------------------- principal
 
 
 def main():
+    prune = "--prune" in sys.argv[1:]
+
     with open(JSON_PATH, encoding="utf-8") as fh:
         data = json.load(fh)
-    projects = data["projects"]
-    before = json.dumps(projects, sort_keys=True)
-    by_id = {p["id"]: p for p in projects}
+    old_projects = data["projects"]
+    old_by_id = {p["id"]: p for p in old_projects}
 
     print(f"Lecture du profil Behance « {USERNAME} »…")
     found = fetch_projects()
     if not found:
         print("::error::Aucun projet récupéré depuis Behance (page bloquée ou structure changée).")
-        # Les images manquantes peuvent quand même être téléchargées
-        download_missing(projects)
         return 1
 
-    new = []
+    # On reconstruit la liste dans l'ordre exact de Behance
+    rebuilt = []
+    found_ids = set()
     for f in found:
-        p = by_id.get(f["id"])
-        if p:
+        found_ids.add(f["id"])
+        p = old_by_id.get(f["id"])
+        if p is None:
+            p = {"id": f["id"], "cat": guess_cat(f["title"]), "views": f.get("views") or 0,
+                 "title": f["title"], "src_title": f["title"], "img": f["img"], "slug": f["slug"]}
+            print(f"  + nouveau : {f['id']} · {f['title']} [{p['cat']}]")
+        else:
+            p = dict(p)
             if f.get("views") is not None:
                 p["views"] = f["views"]
-            if not p.get("slug"):
+            if f["slug"]:
                 p["slug"] = f["slug"]
-
-            # Couverture changée sur Behance -> on remplace et on retélécharge
             if f["img"] and f["img"] != p.get("img"):
-                if p.get("img"):
-                    old = os.path.join(IMG_DIR, f"{p['id']}.{p['img'].rsplit('.', 1)[-1]}")
-                    if os.path.exists(old):
-                        os.remove(old)
-                p["img"] = f["img"]
-                print(f"  ~ couverture mise à jour : {f['id']} · {p.get('title', '')}")
+                print(f"  ~ couverture changée : {f['id']} · {p.get('title', '')}")
+            p["img"] = f["img"]
 
             # Titre : suivre Behance, sauf si tu l'as retouché à la main
             last = p.get("src_title")
             if last is None:
-                p["src_title"] = f["title"]  # première fois : on mémorise seulement
+                p["src_title"] = f["title"]
             elif f["title"] and f["title"] != last:
-                if p.get("title") == last:  # pas retouché manuellement
+                if p.get("title") == last:
                     p["title"] = f["title"]
                     print(f"  ~ titre mis à jour : {f['id']} · {f['title']}")
                 p["src_title"] = f["title"]
-        else:
-            np_ = {"id": f["id"], "cat": guess_cat(f["title"]), "views": f.get("views") or 0,
-                   "title": f["title"], "src_title": f["title"], "img": f["img"], "slug": f["slug"]}
-            new.append(np_)
-            by_id[f["id"]] = np_
-            print(f"  + nouveau : {f['id']} · {f['title']} [{np_['cat']}]")
-    projects = new + projects
+        rebuilt.append(p)
+
+    # Projets plus trouvés sur Behance
+    missing = [p for p in old_projects if p["id"] not in found_ids]
+    if prune:
+        for p in missing:
+            for fpath in _existing_files(p["id"]):
+                os.remove(fpath)
+            print(f"  - supprimé : {p['id']} · {p.get('title', '')}")
+    else:
+        if missing:
+            print(f"  {len(missing)} projet(s) non trouvé(s) sur Behance, gardés à la fin "
+                  f"(utilise --prune pour les supprimer)")
+        rebuilt += missing
+
+    projects = rebuilt
+    by_id = {p["id"]: p for p in projects}
 
     if os.path.exists(OVERRIDES_PATH):
         with open(OVERRIDES_PATH, encoding="utf-8") as fh:
@@ -306,17 +336,14 @@ def main():
                 if pid in by_id and isinstance(patch, dict):
                     by_id[pid].update({k: v for k, v in patch.items() if k in ("cat", "title", "views")})
 
-    if json.dumps(projects, sort_keys=True) != before:
-        data["projects"] = projects
-        data["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        with open(JSON_PATH, "w", encoding="utf-8") as fh:
-            json.dump(data, fh, ensure_ascii=False, indent=1)
-            fh.write("\n")
-        print(f"projects.json mis à jour ({len(new)} nouveau(x), {len(projects)} au total)")
-    else:
-        print("projects.json inchangé")
+    data["projects"] = projects
+    data["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    with open(JSON_PATH, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, indent=1)
+        fh.write("\n")
+    print(f"projects.json mis à jour ({len(projects)} projets, ordre Behance)")
 
-    download_missing(projects)
+    download_all(projects)
     return 0
 
 
