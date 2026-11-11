@@ -3,8 +3,10 @@
 Synchronise projects.json avec ton profil Behance et télécharge les miniatures dans img/.
 
 - Ajoute en tête de liste les NOUVEAUX projets trouvés sur Behance.
-- Ne modifie jamais titre / catégorie des projets existants (tes retouches manuelles sont conservées).
-- Met à jour le nombre de vues quand Behance le fournit.
+- Pour les projets existants :
+    * met à jour le nombre de vues quand Behance le fournit ;
+    * remplace la couverture si elle a changé sur Behance (et la retélécharge) ;
+    * suit le titre Behance, SAUF si tu l'as retouché à la main.
 - Ne supprime rien : pour retirer un projet, supprime-le à la main dans projects.json.
 - Corrections manuelles : overrides.json  ->  {"ID_DU_PROJET": {"cat": "g", "title": "Nouveau titre"}}
 
@@ -269,12 +271,30 @@ def main():
         if p:
             if f.get("views") is not None:
                 p["views"] = f["views"]
-            p.setdefault("img", f["img"])
             if not p.get("slug"):
                 p["slug"] = f["slug"]
+
+            # Couverture changée sur Behance -> on remplace et on retélécharge
+            if f["img"] and f["img"] != p.get("img"):
+                if p.get("img"):
+                    old = os.path.join(IMG_DIR, f"{p['id']}.{p['img'].rsplit('.', 1)[-1]}")
+                    if os.path.exists(old):
+                        os.remove(old)
+                p["img"] = f["img"]
+                print(f"  ~ couverture mise à jour : {f['id']} · {p.get('title', '')}")
+
+            # Titre : suivre Behance, sauf si tu l'as retouché à la main
+            last = p.get("src_title")
+            if last is None:
+                p["src_title"] = f["title"]  # première fois : on mémorise seulement
+            elif f["title"] and f["title"] != last:
+                if p.get("title") == last:  # pas retouché manuellement
+                    p["title"] = f["title"]
+                    print(f"  ~ titre mis à jour : {f['id']} · {f['title']}")
+                p["src_title"] = f["title"]
         else:
             np_ = {"id": f["id"], "cat": guess_cat(f["title"]), "views": f.get("views") or 0,
-                   "title": f["title"], "img": f["img"], "slug": f["slug"]}
+                   "title": f["title"], "src_title": f["title"], "img": f["img"], "slug": f["slug"]}
             new.append(np_)
             by_id[f["id"]] = np_
             print(f"  + nouveau : {f['id']} · {f['title']} [{np_['cat']}]")
